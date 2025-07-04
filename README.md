@@ -11,11 +11,20 @@ This is a pure frontend application, built with HTML, CSS (Tailwind CSS), and Ja
 * **Error Reporting:** Provides clear error messages if issues occur during the music generation process.
 * **Responsive Design:** Utilizes Tailwind CSS for a modern and responsive layout.
 
+## File Structure
+
+The UI is organized into three main files:
+
+-   `index.html`: The main HTML document.
+-   `style.css`: Contains all the custom CSS rules for the application.
+-   `script.js`: Contains all the JavaScript logic for interacting with the backend and manipulating the DOM.
+
 ## Technologies Used
 
-* **HTML5:** Structure of the web page.
-* **CSS (Tailwind CSS):** Styling and responsive design.
-* **JavaScript (ES6+):** Handles user interaction, API calls to the Orchestration Layer, and dynamic content updates.
+*   **HTML5:** `index.html` for the structure of the web page.
+*   **CSS:** `style.css` for custom styling and layout.
+*   **JavaScript (ES6+):** `script.js` for handling user interaction, API calls, and dynamic content.
+*   **Tailwind CSS:** Used via CDN for utility-first styling.
 
 ## Interaction Flow
 
@@ -52,15 +61,15 @@ This is a static web application, so it does not require a backend server in thi
 
 ## Configuration
 
-The web application needs to know the URL of the Orchestration Layer API. This is configured directly in `index.html`.
+The web application needs to know the URL of the Orchestration Layer API. This is configured in `script.js`.
 
-* **`index.html`:**
+*   **`script.js`:**
     ```javascript
-    const ORCHESTRATION_API_URL = '[http://127.0.0.1:8003/orchestrate/weather-to-music](http://127.0.0.1:8003/orchestrate/weather-to-music)';
+    const ORCHESTRATION_API_URL = 'http://127.0.0.1:8003/orchestrate/weather-to-music';
     ```
-    If your Orchestration Layer is running on a different host or port, you will need to update this URL in the JavaScript code.
+    If your Orchestration Layer is running on a different host or port, you will need to update this URL.
 
 ## Development
 
-* **Styling:** Uses Tailwind CSS via CDN. For development, you can use a local Tailwind setup or continue with the CDN.
-* **JavaScript:** All logic is contained within the `<script>` tag in `index.html`. For larger applications, this would typically be split into separate `.js` files.
+*   **Styling:** Custom styles are in `style.css`. The project also uses Tailwind CSS via a CDN for utility classes.
+*   **JavaScript:** All application logic is contained in `script.js`. It is linked from `index.html` with the `defer` attribute to ensure it runs after the document is parsed.
