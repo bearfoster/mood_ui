@@ -15,20 +15,25 @@
 
         <div class="input-group mb-8">
             <label for="weatherQuery" class="block text-gray-700 text-sm mb-2 text-left">Describe the weather:</label>
-            <textarea id="weatherQuery" rows="3" placeholder="e.g., 'weather in Sydney today', 'the weather in New York on April 2 2021', 'it's currently a hot, sunny day'" class="px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-500 resize-y" required></textarea>
+            <textarea id="weatherQuery" rows="3" placeholder="e.g., 'weather in Sydney today', 'the weather in New York on April 2 2021', 'it's currently a hot, sunny day'" class="px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 resize-y" required></textarea>
         </div>
 
-        <button id="generateButton">Generate Music</button>
+        <button id="generateButton">
+            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.648c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.717-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+            </svg>
+            <span>Generate Music</span>
+        </button>
 
         <div id="loading" class="hidden mt-8 text-center">
             <div class="loading-spinner"></div>
-            <p class="text-indigo-600 font-semibold">Analyzing your request and generating music... this might take a moment.</p>
+            <p class="text-teal-600 font-semibold">Analyzing your request and generating music... this might take a moment.</p>
             <p class="text-gray-500 text-sm mt-2">Inferring weather, analyzing mood, initiating generation, and polling for completion.</p>
         </div>
 
         <div id="results" class="hidden result-box">
             <h2 class="text-2xl font-bold text-gray-800 mb-3">Results:</h2>
-            <p class="text-gray-700 text-lg mb-2"><span class="font-semibold">Inferred Mood:</span> <span id="inferredMood" class="text-indigo-700 font-bold"></span></p>
+            <p class="text-gray-700 text-lg mb-2"><span class="font-semibold">Inferred Mood:</span> <span id="inferredMood" class="text-teal-700 font-bold"></span></p>
             <div id="musicPlayerContainer" class="hidden">
                 <p class="text-gray-700 text-lg font-semibold mb-2">Listen to your music:</p>
                 <audio id="musicPlayer" controls autoplay></audio>
