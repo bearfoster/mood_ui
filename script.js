@@ -8,7 +8,7 @@ const musicPlayer = document.getElementById('musicPlayer');
 const errorMessage = document.getElementById('errorMessage');
 
 // Orchestration Layer API URL (ensure this matches where your orchestration service is running)
-const ORCHESTRATION_API_URL = 'http://127.0.0.1:8003/orchestrate/weather-to-music';
+const ORCHESTRATION_API_URL = 'http://127.0.0.1:8000/orchestrate/weather-to-music';
 
 generateButton.addEventListener('click', async () => {
     const naturalLanguageQuery = weatherQueryInput.value; // Changed variable name

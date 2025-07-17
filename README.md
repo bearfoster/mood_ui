@@ -43,7 +43,7 @@ This is a static web application, so it does not require a backend server in thi
 ### Prerequisites
 
 * A web browser (Chrome, Firefox, Edge, etc.)
-* The backend services (Mood Analysis, Music Generation, Orchestration Layer) must be running and accessible at their specified ports (`8001`, `8002`, `8003`).
+* The backend services (Mood Analysis, Music Generation, Orchestration Layer) must be running and accessible at their specified ports (`8001`, `8002`, `8000`).
 
 ### Steps
 
@@ -65,7 +65,7 @@ The web application needs to know the URL of the Orchestration Layer API. This i
 
 *   **`script.js`:**
     ```javascript
-    const ORCHESTRATION_API_URL = 'http://127.0.0.1:8003/orchestrate/weather-to-music';
+    const ORCHESTRATION_API_URL = 'http://127.0.0.1:8000/orchestrate/weather-to-music';
     ```
     If your Orchestration Layer is running on a different host or port, you will need to update this URL.
 
