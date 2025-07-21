@@ -3,39 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather to Mood to Music AI</title>
+    <title>AI Mood to Music Generator</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@404&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Themes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Rubik:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="flex items-center justify-center p-5">
+<body>
+    <!-- This empty div is used for background visual effects -->
+    <div class="background-shapes"></div>
+
+    <div class="theme-switcher">
+        <button class="theme-button" data-theme="psychedelic" title="Psychedelic Theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 12c-3 0-5 2-5 5s2 5 5 5"/></svg>
+        </button>
+        <button class="theme-button" data-theme="synthwave" title="Synthwave Theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="theme-button" data-theme="serene" title="Serene Theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-7 7h14l-7-7z"/><path d="M2 22h20"/><path d="M4 15h16"/></svg>
+        </button>
+    </div>
+
     <div class="container">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-8">Weather to Music AI</h1>
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-2 title-font">Cosmic Jams</h1>
+        <p class="text-lg mb-8 subtitle-font">Tune in, type out, and trip on AI-generated music.</p>
 
         <div class="input-group mb-8">
-            <label for="weatherQuery" class="block text-gray-700 text-sm mb-2 text-left">Describe the weather:</label>
-            <textarea id="weatherQuery" rows="3" placeholder="e.g., 'weather in Sydney today', 'the weather in New York on April 2 2021', 'it's currently a hot, sunny day'" class="px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 resize-y" required></textarea>
+            <label for="promptQuery" class="block text-sm mb-2 text-left subtitle-font">Describe a vibe, a vision, or a voyage:</label>
+            <textarea id="promptQuery" rows="4" placeholder="e.g., 'a forgotten temple in a jungle', 'drifting through Saturns rings', 'a neon-drenched city in the rain'" class="w-full px-4 py-3 rounded-lg resize-y" required></textarea>
         </div>
 
         <button id="generateButton">
             <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.648c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.717-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                <path d="M11.9999 1.5C12.5522 1.5 12.9999 1.94772 12.9999 2.5L12.9999 6.0521C15.2285 6.54365 16.956 8.27113 17.4475 10.5H21.4999C22.0522 10.5 22.4999 10.9477 22.4999 11.5C22.4999 12.0523 22.0522 12.5 21.4999 12.5H17.4475C16.956 14.7289 15.2285 16.4563 12.9999 16.9479V21.5C12.9999 22.0523 12.5522 22.5 11.9999 22.5C11.4477 22.5 10.9999 22.0523 10.9999 21.5V16.9479C8.77138 16.4563 7.0439 14.7289 6.55235 12.5H2.49994C1.94766 12.5 1.49994 12.0523 1.49994 11.5C1.49994 10.9477 1.94766 10.5 2.49994 10.5H6.55235C7.0439 8.27113 8.77138 6.54365 10.9999 6.0521V2.5C10.9999 1.94772 11.4477 1.5 11.9999 1.5ZM11.9999 8.5C10.067 8.5 8.49994 10.067 8.49994 12C8.49994 13.933 10.067 15.5 11.9999 15.5C13.9329 15.5 15.4999 13.933 15.4999 12C15.4999 10.067 13.9329 8.5 11.9999 8.5Z"></path>
             </svg>
-            <span>Generate Music</span>
+            <span>Generate Tune</span>
         </button>
 
         <div id="loading" class="hidden mt-8 text-center">
             <div class="loading-spinner"></div>
-            <p class="text-teal-600 font-semibold">Analyzing your request and generating music... this might take a moment.</p>
-            <p class="text-gray-500 text-sm mt-2">Inferring weather, analyzing mood, initiating generation, and polling for completion.</p>
+            <p class="font-semibold loading-text">Tuning the cosmos... your track is materializing...</p>
         </div>
 
         <div id="results" class="hidden result-box">
-            <h2 class="text-2xl font-bold text-gray-800 mb-3">Results:</h2>
-            <p class="text-gray-700 text-lg mb-2"><span class="font-semibold">Inferred Mood:</span> <span id="inferredMood" class="text-teal-700 font-bold"></span></p>
+            <h2 class="text-2xl font-bold mb-3 title-font">Your Cosmic Echo:</h2>
+            <p class="text-lg mb-2 subtitle-font"><span class="font-semibold">Inferred Vibe:</span> <span id="inferredMood" class="font-bold"></span></p>
             <div id="musicPlayerContainer" class="hidden">
-                <p class="text-gray-700 text-lg font-semibold mb-2">Listen to your music:</p>
                 <audio id="musicPlayer" controls autoplay></audio>
             </div>
             <p id="errorMessage" class="text-red-600 text-lg font-semibold mt-4 hidden"></p>
