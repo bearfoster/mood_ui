@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- MUSIC GENERATION LOGIC ---
 generateButton.addEventListener('click', async () => {
     const naturalLanguageQuery = promptQueryInput.value;
+    // Get the currently selected theme from local storage
+    const selectedTheme = localStorage.getItem('selectedTheme') || 'psychedelic'; // Default to 'psychedelic' if not found
 
     if (!naturalLanguageQuery.trim()) {
         displayMessage('Please enter a description.', 'error');
@@ -71,7 +73,8 @@ generateButton.addEventListener('click', async () => {
             },
             body: JSON.stringify({
                 natural_language_query: naturalLanguageQuery,
-                duration_seconds: 90
+                duration_seconds: 90,
+                theme: selectedTheme // Include the selected theme in the API call
             }),
         });
 
